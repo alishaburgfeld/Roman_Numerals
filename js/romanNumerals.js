@@ -1,19 +1,17 @@
 
-const obj={
-    I: 1,
-    V: 5,
-    X: 10,
-    L: 50,
-    C: 100,
-    D: 500,
-    M: 1000
-}
-
-
-
-let arr= [1000,500,100,50,10,5,1]
-let str=""
-const romanLazy= function (num) {
+exports.toRoman= function (num) {
+    const obj={
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000
+    }
+    
+    let arr= [1000,500,100,50,10,5,1]
+    let str=""
     arr.map(function (roman) {
         if ((num/roman) >=1) {
             let floor=num/roman
@@ -34,4 +32,4 @@ const romanLazy= function (num) {
 }
 
 
-console.log(romanLazy(37))
+// console.log(toRoman(174))
