@@ -1,4 +1,4 @@
-
+//Lazy way:
 exports.toRoman= function (num) {
     const obj={
         I: 1,
@@ -30,6 +30,80 @@ exports.toRoman= function (num) {
     })
     return str
 }
+console.log(toRoman(174))
+
+//Another way to do the Lazy Way: 
+// const toRoman = function(num) {
+//     const romanObj= {
+        
+//         M: 1000,
+//         D: 500,
+//         C: 100,
+//         L: 50,
+//         X: 10,
+//         V: 5,
+//         I: 1,
+//     }
+
+//     let str=""
+//     for (let roman in romanObj) {       //key
+//         let arabic=romanObj[roman]      //value
+//         let floor=(num/arabic)
+//         if (floor>=1) {
+//             while (num>=arabic) {
+//                 // if (num % arabic===1) {
+
+//                 // }
+//                 str+=roman
+//                 num-=arabic
+//             }
+//         }
+
+//     }
+//     return str
+
+// }
+
+// console.log(toRoman(944))
 
 
 // console.log(toRoman(174))
+
+//Modern way:
+
+const toRoman = function(num) {
+    const romanObj= {
+        
+        M: 1000,
+        CM: 900,
+        D: 500,
+        CD: 400,
+        C: 100,
+        XC: 90,
+        L: 50,
+        XL: 40,
+        X: 10,
+        IX: 9,
+        V: 5,
+        IV: 4,
+        I: 1,
+    }
+
+    let str=""
+    newStr=""
+    for (let roman in romanObj) {       //key
+        let arabic=romanObj[roman]      //value
+        let floor=(num/arabic)
+        if (floor>=1) {
+            while (num>=arabic) {
+                str+=roman
+                num-=arabic
+            }
+        }
+
+    }
+    return str
+
+}
+
+console.log(toRoman(19))
